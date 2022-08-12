@@ -1,0 +1,24 @@
+{
+  "name": "doanptudw2223hk1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HienPham2022/DoAnPTUDW2223HK1.git"
+  },
+  "author": "phamvanhien21880038",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HienPham2022/DoAnPTUDW2223HK1/issues"
+  },
+  "homepage": "https://github.com/HienPham2022/DoAnPTUDW2223HK1#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "express-handlebars": "^6.0.6",
+    "handlebars": "^4.7.7"
+  }
+}
