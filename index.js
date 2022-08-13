@@ -17,9 +17,24 @@ app.set('view engine','hbs');
 app.get('/',(req,res)=>{
     res.render('index');
 });
-app.get('/blog',(req,res)=>{
-    res.render('blog');
+app.get('/:page',(req,res)=>{
+    let banners = {
+        blog:'Our Blog',
+        cart:'Shopping Cart',
+        category: 'Shop Category',
+        checkout: 'Product Checkout',
+        confirmation: 'Order Confirmation',
+        contact:'Contact Us',
+        login:'Login / Register',
+        register: 'Register',
+        'single-blog': 'Blog Details',
+        'single-product':'Shop Single',
+        'tracking-order':'Order Tracking',
+    };
+    let page = req.params.page;    
+    res.render(page,{ banner : banners[page]});
 });
+
 
 // set server port and start server
 app.set('port',process.env.PORT|| 5000);
