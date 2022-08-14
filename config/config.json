@@ -1,23 +1,29 @@
 {
     "development": {
+        "username": "zyuzbjqlkfvjrv",
+        "password": "041964c4770261643db333df22f432913d66dbc5820525610c8c30833b2b0c86",
+        "database": "dcr6n3t927cf4n",
+        "host": "ec2-52-207-15-147.compute-1.amazonaws.com",
+        "dialect": "postgres",
+        "dialectOptions": {
+            "ssl": {
+                "require": true,
+                "rejectUnauthorized": false
+                }
+        }
+    },
+    "test": {
         "username": "postgres",
         "password": "hien815387",
         "database": "aromadb",
         "host": "localhost",
         "dialect": "postgres"
     },
-    "test": {
-        "username": "postgres",
-        "password": "postgres",
-        "database": "aromadb",
-        "host": "localhost",
-        "dialect": "postgres"
-    },
     "production": {
-        "username": "heroku-postgres-username",
-        "password": "heroku-postgres-password",
-        "database": "heroku-postgres-database",
-        "host": "heroku-postgres-host",
+        "username": "zyuzbjqlkfvjrv",
+        "password": "041964c4770261643db333df22f432913d66dbc5820525610c8c30833b2b0c86",
+        "database": "dcr6n3t927cf4n",
+        "host": "ec2-52-207-15-147.compute-1.amazonaws.com",
         "dialect": "postgres",
         "dialectOptions": {
             "ssl": {
