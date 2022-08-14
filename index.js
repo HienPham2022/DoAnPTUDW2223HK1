@@ -16,7 +16,7 @@ app.set('view engine','hbs');
 
 // define your route here
 app.use('/',require('./routes/indexRouter'));
-app.use('/product',require('./routes/productRouter'));
+app.use('/products',require('./routes/productRouter'));
 
 app.get('/sync',(req,res)=>{
     let models = require('./models');
