@@ -9,13 +9,21 @@ app.engine('hbs',hbs.engine({
     extname:'hbs',
     defaultLayout:'layout',
     layoutDir:__dirname + '/views/layouts',
-    partialDir:__dirname + '/views/partials'
+    partialDir:__dirname + '/views/partials',
+    runtimeOptions: { allowProtoPropertiesByDefault: true },
 }));
 app.set('view engine','hbs');
 
 // define your route here
-app.get('/',(req,res)=>{
-    res.render('index');
+app.use('/',require('./routes/indexRouter'));
+app.use('/product',require('./routes/productRouter'));
+
+app.get('/sync',(req,res)=>{
+    let models = require('./models');
+    models.sequelize.sync()
+    .then(()=>{
+        res.send('Database completed successfully!');
+    });
 });
 app.get('/:page',(req,res)=>{
     let banners = {
