@@ -5,11 +5,16 @@ const app =express();
 app.use(express.static(__dirname+'/public'));
 // use view engine
 var hbs = require('express-handlebars');
+let helper = require('./controllers/helper');
 app.engine('hbs',hbs.engine({
     extname:'hbs',
     defaultLayout:'layout',
     layoutDir:__dirname + '/views/layouts',
     partialDir:__dirname + '/views/partials',
+    helpers:{
+        createStarList: helper.createStarList,
+        createStars: helper.createStars
+    },
     runtimeOptions: { allowProtoPropertiesByDefault: true },
 }));
 app.set('view engine','hbs');
