@@ -1,4 +1,5 @@
 let controller ={};
+const { Error } = require('sequelize');
 var models = require('../models');
 let Product = models.Product;
 controller.getTrendingProducts = () =>{
@@ -77,4 +78,26 @@ controller.getById =(id) =>{
             .catch(error =>reject(new Error(error)));
     });
 };
+
+// top product cô dạy;
+controller.getTopProducts =() =>{
+    return new Promise ((resolve,reject)=>{
+        Product.findAll({
+            limit :12,
+            order: [
+                ['overallReview','DESC']
+            ]
+        })
+        .then(data=>{
+            let topProducts =[];
+            while(data.length){
+                topProducts.push(data.splice(0,3));
+
+            }
+            resolve(topProducts);
+        })
+        .catch(error =>reject(new Error(error)));
+    })
+}
+
 module.exports = controller;

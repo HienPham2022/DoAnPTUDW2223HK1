@@ -26,6 +26,12 @@ router.get('/',(req,res)=>{
         })
         .then(data =>{
             res.locals.products = data;
+            let topProductController = require('../controllers/productController');
+            return topProductController.getTopProducts();
+            
+        })
+        .then(data=>{
+            res.locals.topProducts = data;
             res.render('category');
         })
         .catch(error =>next(error));
