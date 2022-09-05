@@ -20,10 +20,39 @@ app.engine('hbs',hbs.engine({
     runtimeOptions: { allowProtoPropertiesByDefault: true },
 }));
 app.set('view engine','hbs');
+//Body Parser
+let bodyParser = require('body-parser');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:false}));
+
+//Use cookie-parser
+let cookieParser = require('cookie-parser');
+app.use(cookieParser());
+
+//Use Session
+let session = require('express-session');
+app.use(session({
+    cookie: { httpOnly:true,maxAge:30*24*60*60*1000},
+    secret:'Secret',
+    resave:false,
+    saveUninitialized:false
+}));
+
+
+//Use Cart Controller
+let Cart = require('./controllers/cartController');
+app.use((req,res,next)=>{
+    var cart = new Cart(req.session.cart ? req.session.cart:{});
+    req.session.cart =cart;
+    res.locals.totalQuantity = cart.totalQuantity;
+    next();
+});
 
 // define your route here
 app.use('/',require('./routes/indexRouter'));
 app.use('/products',require('./routes/productRouter'));
+
+app.use('/cart',require('./routes/cartRouter'));
 
 app.get('/sync',(req,res)=>{
     let models = require('./models');
