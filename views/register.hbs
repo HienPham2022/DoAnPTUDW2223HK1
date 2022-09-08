@@ -16,10 +16,10 @@
 				<div class="col-lg-6">
 					<div class="login_form_inner register_form_inner">
 						<h3>Create an account</h3>
-						<form class="row login_form" action="/users/register" method="post" id="register_form" >
+						<form class="row login_form" action="/users/register" method="POST" id="register_form" >
 							{{#if message}}
-							<div class="col-md-12">
-								<span class="alert {{type}}">{{message}}</span>
+							<div class="col-md-12 form-group alert {{type}}">
+								<strong >{{message}}</strong>
 							</div>
 							{{/if}}
 							<div class="col-md-12 form-group">
@@ -27,11 +27,11 @@
 							</div>
 							<div class="col-md-12 form-group">
 								<input type="email" class="form-control" id="username" name="username" placeholder="Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address'">
-              </div>
-              <div class="col-md-12 form-group">
+              				</div>
+             				 <div class="col-md-12 form-group">
 								<input type="password" class="form-control" id="password" name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
-              </div>
-              <div class="col-md-12 form-group">
+              				</div>
+              				<div class="col-md-12 form-group">
 								<input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Confirm Password'">
 							</div>
 							<div class="col-md-12 form-group">
