@@ -20,7 +20,7 @@ controller.comparePassword = (password,hash) =>{
 };
 
 controller.isLoggedIn =(req,res,next)=>{
-    if(req.sesssion.user){
+    if(req.session.user){
         next();
     }else{
         res.redirect(`/users/login?returnURL=${req.originalUrl}`);

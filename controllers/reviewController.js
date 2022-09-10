@@ -4,7 +4,7 @@ let Review = models.Review;
 let Sequelize = require('sequelize');
 let Op = Sequelize.Op;
 
-controller.add = (review) =>{
+controller.add = (review) =>{    
     return new Promise((resolve,reject)=>{
         Review
             .findOne({
